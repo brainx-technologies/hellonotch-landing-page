@@ -24,8 +24,13 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen">
       <nav
-        className="fixed top-0 left-0 right-0 z-[999] h-16 flex items-center px-6 lg:px-12"
-        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--border)' }}
+        className="fixed top-0 left-0 right-0 z-[999] h-16 flex items-center px-4 sm:px-6 lg:px-12"
+        style={{
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--border)',
+          paddingTop: 'env(safe-area-inset-top, 0px)',
+          minHeight: 'calc(4rem + env(safe-area-inset-top, 0px))',
+        }}
       >
         <Link to="/" className="no-underline flex items-center shrink-0">
           <Logo />
@@ -41,7 +46,7 @@ export function Layout({ children }: { children: ReactNode }) {
           >
             Sign In
           </a>
-          <DemoButton size="sm" />
+          <DemoButton size="sm" compactLabel />
         </div>
       </nav>
 
@@ -117,13 +122,24 @@ export function TextLink({
 export function DemoButton({
   className = '',
   size = 'default',
+  compactLabel = false,
 }: {
   className?: string;
   size?: 'default' | 'sm';
+  compactLabel?: boolean;
 }) {
   const sizeClasses = size === 'sm'
-    ? 'px-4 py-2 type-button-label text-[14px]'
+    ? 'px-3 sm:px-4 py-2 type-button-label text-[13px] sm:text-[14px]'
     : 'px-7 py-[14px] type-button-label';
+
+  const label = compactLabel ? (
+    <>
+      <span className="sm:hidden">Demo</span>
+      <span className="hidden sm:inline">Schedule a Demo</span>
+    </>
+  ) : (
+    'Schedule a Demo'
+  );
 
   return (
     <button
@@ -137,7 +153,7 @@ export function DemoButton({
       onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(214,157,118,.4)'; }}
       onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(214,157,118,0)'; }}
     >
-      Schedule a Demo
+      {label}
     </button>
   );
 }
@@ -145,37 +161,38 @@ export function DemoButton({
 function Footer() {
   return (
     <footer
-      className="py-10 px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4"
+      className="py-8 md:py-10 px-4 sm:px-6 lg:px-12 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-6 sm:gap-4"
       style={{
         background: 'var(--bg)',
         borderTop: '1px solid var(--border)',
         color: 'var(--text-muted)',
+        paddingBottom: 'calc(2rem + env(safe-area-inset-bottom, 0px))',
       }}
     >
       <Link to="/" className="no-underline flex items-center">
         <Logo className="h-[18px] w-auto" />
       </Link>
-      <span className="text-[.8125rem] font-light">
+      <span className="text-[.8125rem] font-light order-3 sm:order-none w-full sm:w-auto">
         © 2026 Notch Procurement, Inc. All rights reserved.
       </span>
-      <nav className="flex items-center gap-6">
+      <nav className="flex items-center gap-5 sm:gap-6 order-2 sm:order-none">
         <a
           href="/privacy-policy.html"
-          className="text-[.875rem] no-underline hover:text-[var(--text)]"
+          className="text-[.875rem] no-underline hover:text-[var(--text)] py-1"
           style={{ color: 'var(--text-muted)' }}
         >
           Privacy
         </a>
         <a
           href="/terms-of-service.html"
-          className="text-[.875rem] no-underline hover:text-[var(--text)]"
+          className="text-[.875rem] no-underline hover:text-[var(--text)] py-1"
           style={{ color: 'var(--text-muted)' }}
         >
           Terms
         </a>
         <a
           href="mailto:team@hellonotch.com"
-          className="text-[.875rem] no-underline hover:text-[var(--text)]"
+          className="text-[.875rem] no-underline hover:text-[var(--text)] py-1"
           style={{ color: 'var(--text-muted)' }}
         >
           Contact

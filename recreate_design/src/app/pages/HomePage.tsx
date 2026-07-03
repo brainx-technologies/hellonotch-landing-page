@@ -20,12 +20,12 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <section
-      className="relative pt-12 pb-10 lg:pb-14 overflow-x-clip"
+      className="relative pt-8 pb-8 md:pt-12 md:pb-10 lg:pb-14 overflow-x-clip"
       style={{ background: '#0B0B0D', borderTop: '1px solid var(--border)' }}
     >
       <div className="grid lg:grid-cols-[minmax(0,540px)_1fr] lg:gap-8 lg:items-center">
         <div
-          className="px-6 lg:pl-[max(1.5rem,calc((100vw-1200px)/2+1.5rem))] lg:pr-6 text-center lg:text-left reveal"
+          className="px-4 sm:px-6 lg:pl-[max(1.5rem,calc((100vw-1200px)/2+1.5rem))] lg:pr-6 text-center lg:text-left reveal"
         >
           <div className="status-pill mb-5 mx-auto lg:mx-0 w-fit">
             <span className="status-pill__dot" aria-hidden="true" />
@@ -46,7 +46,7 @@ function HeroSection() {
           <DemoButton />
         </div>
 
-        <div className="px-6 lg:pl-0 lg:pr-0 reveal relative w-full min-w-0 flex justify-end">
+        <div className="mt-8 lg:mt-0 px-0 sm:px-6 lg:pl-0 lg:pr-0 reveal relative w-full min-w-0 flex justify-end">
           <div
             className="pointer-events-none absolute inset-[-8%_0_-12%_20%] z-0 hidden lg:block"
             style={{
@@ -56,11 +56,11 @@ function HeroSection() {
             aria-hidden="true"
           />
           <div className="relative z-[1] w-full lg:w-[calc(100%+110px)] lg:max-w-none">
-            <div className="relative overflow-hidden rounded-2xl lg:rounded-l-2xl lg:rounded-r-none">
+            <div className="relative overflow-hidden rounded-none sm:rounded-2xl lg:rounded-l-2xl lg:rounded-r-none aspect-[5/4] sm:aspect-[16/10] lg:aspect-auto">
               <img
                 src="/hero-product-screenshot.png"
                 alt="Notch products table showing Downtown PA Hotel bidding workflow"
-                className="block w-full h-auto max-h-[60vh] object-contain object-right-top"
+                className="block w-full h-full object-cover object-left-top lg:h-auto lg:max-h-[60vh] lg:object-contain lg:object-right-top"
               />
               <div
                 className="pointer-events-none absolute inset-0 hidden lg:block"
@@ -85,7 +85,7 @@ function HeroSection() {
 function CaseStudyCardSection() {
   return (
     <section
-      className="py-12 lg:py-16 px-6 lg:px-12"
+      className="py-12 lg:py-16 px-4 sm:px-6 lg:px-12"
       style={{ background: '#0E0E11', borderTop: '1px solid var(--border)' }}
     >
       <div className="max-w-[1200px] mx-auto">
@@ -133,7 +133,7 @@ function CaseStudyCardSection() {
 function ProblemSection() {
   return (
     <section
-      className="py-20 px-6 lg:px-12 reveal"
+      className="py-12 md:py-20 px-4 sm:px-6 lg:px-12 reveal"
       style={{ background: '#0B0B0D', borderTop: '1px solid var(--border)' }}
     >
       <div className="max-w-[1200px] mx-auto">
@@ -200,7 +200,7 @@ function BenefitsSection() {
   return (
     <section
       id="features"
-      className="py-20 px-6 lg:px-12"
+      className="py-12 md:py-20 px-4 sm:px-6 lg:px-12"
       style={{ background: '#0E0E11', borderTop: '1px solid var(--border)' }}
     >
       <h2 className="type-section-heading reveal text-center mb-0">
@@ -255,7 +255,7 @@ function SocialProofSection() {
 
   return (
     <section
-      className="py-20 px-6 lg:px-12"
+      className="py-12 md:py-20 px-4 sm:px-6 lg:px-12"
       style={{ background: '#0B0B0D', borderTop: '1px solid var(--border)' }}
     >
       <h2 className="type-section-heading reveal text-center mb-0">
@@ -290,14 +290,15 @@ function FinalCTASection() {
   return (
     <section
       id="demo"
-      className="py-20 px-6 lg:px-12 text-center"
+      className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 text-center"
       style={{ background: '#0E0E11', borderTop: '1px solid var(--border)' }}
     >
       <h2 className="type-cta-heading reveal mb-4">
         See It In Action
       </h2>
       <p className="type-lead reveal max-w-[560px] mx-auto mb-8">
-        Book a walkthrough with our team and see how Notch fits your procurement workflow from spec import through bid-out.
+        Book a walkthrough with our team and see how Notch fits your procurement workflow from spec import through{' '}
+        <span className="whitespace-nowrap">bid-out</span>.
       </p>
       <DemoButton className="reveal" />
     </section>
