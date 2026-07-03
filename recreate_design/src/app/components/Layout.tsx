@@ -32,7 +32,7 @@ export function Layout({ children }: { children: ReactNode }) {
           minHeight: 'calc(4rem + env(safe-area-inset-top, 0px))',
         }}
       >
-        <Link to="/" className="no-underline flex items-center shrink-0">
+        <Link to="/" className="no-underline flex items-center shrink-0 py-1">
           <Logo />
         </Link>
 
